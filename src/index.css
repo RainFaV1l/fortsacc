@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .manrope-bold {
+        font-family: "Manrope", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 700;
+        font-style: normal;
+    }
+    .container {
+        @apply max-w-[1180px] px-5 mx-auto;
+    }
+    .gradient-green {
+        background: linear-gradient(291deg, #9CFF4F 0%, #54A415 100%);
+    }
+    .gradient-blue {
+        background: linear-gradient(291deg, #604FFF 0%, #897CFF 100%);
+    }
+    .button {
+        @apply text-center flex items-center justify-center transition rounded-[10px] border border-transparent manrope-bold;
+    }
+    .button-outline {
+        @apply button border-white border-opacity-10;
+    }
+    .button-hover-blue-gradient {
+        @apply hover:gradient-blue
+    }
+    .button-hover-green-gradient {
+        @apply hover:gradient-blue
+    }
+    .button-fill {
+        @apply button hover:bg-none hover:border-white;
+    }
+    .input {
+        @apply border border-white border-opacity-10 rounded-[10px] outline-none bg-transparent transition duration-300 focus:border-opacity-100;
+    }
+}
