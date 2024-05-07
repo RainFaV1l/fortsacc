@@ -98,6 +98,7 @@ const capitalizeFirstLetter = (str) => {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
+
 </script>
 
 <template>
@@ -116,7 +117,7 @@ const capitalizeFirstLetter = (str) => {
         <div class="text-red-500 font-normal" v-if="userStore.errors && userStore.errors.unauthorized">
           {{ userStore.errors.unauthorized }}
         </div>
-        <div class="flex flex-col gap-[8px] w-[48%]" v-if="type === 'register'">
+        <div class="flex flex-col gap-[8px] w-[100%]" :class="type === 'register' ? '621:w-[48%]' : type === 'payment' ? '980:w-[48%]' : ''" v-if="type === 'register' || type === 'payment'">
           <label class="manrope-medium text-accent-light-blue" for="first_name">First name</label>
           <input
               :class="userStore.errors.first_name && userStore.errors.first_name[0] ? 'border-red-500 placeholder:font-normal placeholder:text-red-500 placeholder:text-opacity-75' : ''"
@@ -124,7 +125,7 @@ const capitalizeFirstLetter = (str) => {
               v-model="firstName"
               class="input py-[15px] px-5" type="text" name="first_name" id="first_name">
         </div>
-        <div class="flex flex-col gap-[8px] w-[48%]" v-if="type === 'register'">
+        <div class="flex flex-col gap-[8px] w-[100%]" :class="type === 'register' ? '621:w-[48%]' : type === 'payment' ? '980:w-[48%]' : ''" v-if="type === 'register' || type === 'payment'">
           <label class="manrope-medium text-accent-light-blue" for="last_name">Last name</label>
           <input
               :class="userStore.errors.last_name && userStore.errors.last_name[0] ? 'border-red-500 placeholder:font-normal placeholder:text-red-500 placeholder:text-opacity-75' : ''"
@@ -132,7 +133,7 @@ const capitalizeFirstLetter = (str) => {
               v-model="lastName"
               class="input py-[15px] px-5" type="text" name="last_name" id="last_name">
         </div>
-        <div class="flex flex-col gap-[8px] w-[48%]" :class="{ 'w-full' : type === 'login' }">
+        <div class="flex flex-col gap-[8px] w-[100%]" :class="type === 'login' ? 'w-full' : (type === 'register' ? '621:w-[48%]' : type === 'payment' ? '980:w-[48%]' : '')">
           <label class="manrope-medium text-accent-light-blue" for="email">E-mail address</label>
           <input
               :class="userStore.errors && userStore.errors.email && userStore.errors.email[0] ? 'border-red-500 placeholder:text-red-500 placeholder:font-normal placeholder:text-opacity-75' : ''"
@@ -140,7 +141,7 @@ const capitalizeFirstLetter = (str) => {
               v-model="email"
               class="input py-[15px] px-5" type="text" name="email" id="email">
         </div>
-        <div class="flex flex-col gap-[8px] w-[48%]" v-if="type === 'register'">
+        <div class="flex flex-col gap-[8px] w-[100%]" :class="type === 'register' ? '621:w-[48%]' : type === 'payment' ? '980:w-[48%]' : ''" v-if="type === 'register' || type === 'payment'">
           <label class="manrope-medium text-accent-light-blue" for="email_confirmation">Repeat E-mail address</label>
           <input
               :class="userStore.errors.email_confirmation && userStore.errors.email_confirmation[0] ? 'border-red-500 placeholder:font-normal placeholder:text-red-500 placeholder:text-opacity-75' : ''"
@@ -148,7 +149,7 @@ const capitalizeFirstLetter = (str) => {
               v-model="emailConfirmation"
               class="input py-[15px] px-5" type="text" name="email" id="email_confirmation">
         </div>
-        <div class="flex flex-col gap-[8px] w-[48%]" :class="{ 'w-full' : type === 'login' }">
+        <div class="flex flex-col gap-[8px] w-[100%]" :class="type === 'login' ? 'w-full' : (type === 'register' ? '621:w-[48%]' : type === 'payment' ? '980:w-[48%]' : '')">
           <label class="manrope-medium text-accent-light-blue" for="password">Password</label>
           <input
               :class="userStore.errors && userStore.errors.password && userStore.errors.password[0] ?
@@ -157,7 +158,7 @@ const capitalizeFirstLetter = (str) => {
               v-model="password"
               class="input py-[15px] px-5" type="password" name="password" id="password">
         </div>
-        <div class="flex flex-col gap-[8px] w-[48%]" v-if="type === 'register'">
+        <div class="flex flex-col gap-[8px] w-[100%]" :class="type === 'register' ? '621:w-[48%]' : type === 'payment' ? '980:w-[48%]' : ''" v-if="type === 'register' || type === 'payment'">
           <label class="manrope-medium text-accent-light-blue" for="password_confirmation">Again password</label>
           <input
               :class="userStore.errors.password_confirmation && userStore.errors.password_confirmation[0] ? 'border-red-500 placeholder:font-normal placeholder:text-red-500 placeholder:text-opacity-75' : ''"
@@ -165,7 +166,7 @@ const capitalizeFirstLetter = (str) => {
               v-model="passwordConfirmation"
               class="input py-[15px] px-5" type="password" name="password_confirmation" id="password_confirmation">
         </div>
-        <div class="flex flex-col gap-4 w-[48%]" v-if="type === 'register'">
+        <div class="flex flex-col gap-4 w-[100%]" :class="type === 'register' ? '621:w-[48%]' : type === 'payment' ? '980:w-[48%]' : ''" v-if="type === 'register' || type === 'payment'">
           <span class="text-red-500 font-normal" v-if="userStore.errors.is_checked">{{ userStore.errors.is_checked }}</span>
           <div class="flex items-center gap-4">
             <Checkbox name="agreement" v-model="isChecked"/>

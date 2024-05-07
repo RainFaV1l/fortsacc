@@ -33,7 +33,7 @@ const swiperPrevSlide = () => {
 
 <template>
   <div class="container flex items-center flex-col gap-[32px]">
-    <div class="flex justify-between items-center gap-7 w-full">
+    <div class="flex flex-col m:flex-row text-center m:text-start justify-between items-center gap-7 w-full">
       <h2 class="text-5xl font-['Roboto'] font-bold uppercase"><span class="text-accent-green">Popular</span> products</h2>
       <div class="flex items-center gap-3" v-if="productStore.getPopularProducts.length >= 3">
         <button @click="swiperPrevSlide" class="p-[18px] border border-white border-opacity-15 rounded-[10px] transition hover:bg-white">
@@ -61,6 +61,20 @@ const swiperPrevSlide = () => {
           :navigation="false"
           :modules="modules"
           :space-between="31"
+          :breakpoints="{ 
+            300: { 
+              slidesPerView: 1,
+              slidesPerGroup: 1, 
+            }, 
+            768: { 
+              slidesPerView: 2,
+              slidesPerGroup: 2, 
+            }, 
+            1000: { 
+              slidesPerView: 3,
+              slidesPerGroup: 3, 
+            }
+          }"
           class="popularProductsSwiper">
         <swiper-slide v-for="(item, index) in productStore.getPopularProducts" :key="index"><ProductItem :item="item"/></swiper-slide>
       </swiper>

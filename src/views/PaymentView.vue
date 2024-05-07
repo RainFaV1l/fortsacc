@@ -75,9 +75,9 @@ onMounted(() => {
     <main class="flex-auto border-b border-white border-opacity-10">
       <div class="container py-[45px]">
         <PaymentHeader routeName="home"/>
-        <div class="flex items-start justify-between mt-[32px] gap-[30px]">
-          <Info class="w-[65%]"/>
-          <Purchase class="w-[35%]"/>
+        <div class="flex flex-col xl:flex-row items-start justify-between mt-[32px] gap-[30px]">
+          <Info class="w-[100%] xl:w-[65%]" type="payment"/>
+          <Purchase class="w-[100%] x:w-[50%] xl:w-[35%] mx-[auto] xl:mx-[0]"/>
         </div>
       </div>
     </main>
