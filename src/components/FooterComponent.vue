@@ -1,5 +1,8 @@
 <script setup>
 import logo from "@/assets/logo.svg";
+import Logo from "@/components/header/Logo.vue";
+import IconLogo from "@/components/icons/IconLogo.vue";
+import router from "@/router/index.js";
 </script>
 
 <template>
@@ -8,15 +11,14 @@ import logo from "@/assets/logo.svg";
       <div class="flex flex-col">
         <div class="pb-[60px] border-b border-white border-opacity-10">
           <div class="container">
-            <div class="grid grid-cols-5">
+            <div class="grid grid-cols-4">
               <div class="flex flex-col gap-[25px]">
                 <div class="flex flex-col gap-[22px]">
-                  <div class="flex items-center gap-4 cursor-pointer">
-                    <div class="h-8 w-8">
-                      <img class="h-full w-full object-contain" :src="logo" alt="Логотип">
-                    </div>
-                    <div class="uppercase lalezar-regular text-[20px]">Fortcases</div>
-                  </div>
+                  <RouterLink :to="{name: 'home'}">
+                    <Logo name="Fortsacc" :h="39" :w="39" :font-size="20">
+                      <IconLogo/>
+                    </Logo>
+                  </RouterLink>
                   <p class="text-sm font-medium">2023 - Fortnite All Rights ReservedThis website is not affiliated with any other organization.</p>
                 </div>
                 <div class="flex items-center gap-6">
@@ -49,12 +51,12 @@ import logo from "@/assets/logo.svg";
                 <li class="cursor-pointer w-[87px]">About Us</li>
                 <li class="cursor-pointer w-[87px]">Game Index</li>
               </ul>
-              <ul class="flex flex-col gap-[18px] items-center">
-                <li class="cursor-pointer uppercase text-accent-light-blue font-bold w-[133px]">Popular games</li>
-                <li class="cursor-pointer w-[133px]">FN</li>
-                <li class="cursor-pointer w-[133px]">Valorant</li>
-                <li class="cursor-pointer w-[133px]">Genshin Impact</li>
-              </ul>
+<!--              <ul class="flex flex-col gap-[18px] items-center">-->
+<!--                <li class="cursor-pointer uppercase text-accent-light-blue font-bold w-[133px]">Popular games</li>-->
+<!--                <li class="cursor-pointer w-[133px]">FN</li>-->
+<!--                <li class="cursor-pointer w-[133px]">Valorant</li>-->
+<!--                <li class="cursor-pointer w-[133px]">Genshin Impact</li>-->
+<!--              </ul>-->
               <ul class="flex flex-col gap-[18px] items-center">
                 <li class="cursor-pointer uppercase text-accent-light-blue font-bold w-[125px]">Support</li>
                 <li class="cursor-pointer w-[125px]">Contact us</li>
@@ -63,10 +65,10 @@ import logo from "@/assets/logo.svg";
               </ul>
               <ul class="flex flex-col gap-[18px] items-end">
                 <li class="cursor-pointer uppercase text-accent-light-blue font-bold w-[161px]">Legalt</li>
-                <li class="cursor-pointer w-[161px]">Terms and Conditions</li>
-                <li class="cursor-pointer w-[161px]">Agreements</li>
-                <li class="cursor-pointer w-[161px]">Privacy Policy</li>
-                <li class="cursor-pointer w-[161px]">Copyright Policy</li>
+                <li @click="router.push({ name: 'terms' })" class="cursor-pointer w-[161px]">Terms and Conditions</li>
+                <li @click="router.push({ name: 'terms' })" class="cursor-pointer w-[161px]">Agreements</li>
+                <li @click="router.push({ name: 'terms' })" class="cursor-pointer w-[161px]">Privacy Policy</li>
+                <li @click="router.push({ name: 'terms' })" class="cursor-pointer w-[161px]">Copyright Policy</li>
               </ul>
             </div>
           </div>

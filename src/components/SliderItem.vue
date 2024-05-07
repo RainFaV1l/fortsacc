@@ -1,5 +1,8 @@
 <script setup>
 import SliderBg from "@/assets/slider-bg.webp";
+import ButtonComponent from "@/components/UI/ButtonComponent.vue";
+import {useRouter} from "vue-router";
+const router = useRouter()
 defineProps({
   item: {
     type: Object,
@@ -12,7 +15,7 @@ function formatPrice(price, currency) {
 </script>
 
 <template>
-  <div class="flex justify-center">
+  <div class="flex justify-center" >
     <div class="relative h-[435px] w-[320px]">
       <div class="absolute z-20 flex flex-col justify-center items-center h-full w-full gap-[30px]">
         <div class="h-[241px] w-[241px]">
@@ -24,7 +27,7 @@ function formatPrice(price, currency) {
             <p class="text-accent-light-blue text-[14px]">{{ item.description }}</p>
           </div>
           <div class="flex items-center gap-[32px]">
-            <button class="button-fill gradient-green py-[12px] px-[60px] text-[#1C2147] hover:text-white">Buy</button>
+            <ButtonComponent @click="router.push({ name: 'product', params: { id: item.id } })" class="py-[12px] px-[60px] text-[#1C2147] hover:text-white" type="green">More</ButtonComponent>
             <p class="text-[#4FF4FF] font-[20px]">{{ formatPrice(item.price, 'ETH') }}</p>
           </div>
         </div>

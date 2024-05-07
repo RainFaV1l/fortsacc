@@ -13,7 +13,10 @@ export default {
         'gradient-blue': '#897CFF',
         'gradient-green-light': '#9CFF4F',
         'gradient-green': '#54A415',
-      }
+      },
+      gridTemplateRows: {
+        '0': '0fr',
+      },
     },
   },
   plugins: [],

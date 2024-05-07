@@ -3,21 +3,26 @@
 @tailwind utilities;
 
 @layer components {
+
+    /*Font styles*/
     .manrope-bold {
         font-family: "Manrope", sans-serif;
         font-optical-sizing: auto;
         font-weight: 700;
         font-style: normal;
     }
+
+    /*Container styles*/
     .container {
         @apply max-w-[1180px] px-5 mx-auto;
     }
-    .gradient-green {
-        background: linear-gradient(291deg, #9CFF4F 0%, #54A415 100%);
+
+    /*Input styles*/
+    .input {
+        @apply border border-white border-opacity-10 rounded-[10px] outline-none bg-transparent transition duration-300 focus:border-opacity-100;
     }
-    .gradient-blue {
-        background: linear-gradient(291deg, #604FFF 0%, #897CFF 100%);
-    }
+
+    /*Button styles*/
     .button {
         @apply text-center flex items-center justify-center transition rounded-[10px] border border-transparent manrope-bold;
     }
@@ -33,7 +38,18 @@
     .button-fill {
         @apply button hover:bg-none hover:border-white;
     }
-    .input {
-        @apply border border-white border-opacity-10 rounded-[10px] outline-none bg-transparent transition duration-300 focus:border-opacity-100;
+
+    /*Gradient styles*/
+    .gradient-green {
+        background: linear-gradient(291deg, #9CFF4F 0%, #54A415 100%);
+    }
+    .gradient-blue {
+        transition: background-color 2.3s ease-in-out;
+        background: linear-gradient(291deg, #604FFF 0%, #897CFF 100%);
+    }
+
+    /*Header styles*/
+    .header-item {
+        @apply relative cursor-pointer flex justify-center transition hover:text-accent-green;
     }
 }

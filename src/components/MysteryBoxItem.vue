@@ -11,7 +11,7 @@ defineProps({
   <div class="flex items-center flex-col gap-[19px] py-[30px] px-[44px] bg-indigo-950 rounded-[10px] border-4 border-indigo-900">
     <div class="uppercase text-center relative z-20">
       <p class="text-accent-green text-base font-bold">{{ item.type }}</p>
-      <h4 class="mt-[8px] jomhuria-regular text-[52px] leading-10">{{ item.name }}</h4>
+      <h4 class="jomhuria-regular text-[52px] leading-10">{{ item.name }}</h4>
     </div>
     <div class="relative">
       <div class="relative h-[279px] w-[273px] z-20">
