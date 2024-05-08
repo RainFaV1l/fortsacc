@@ -1,4 +1,5 @@
 import {defineStore} from "pinia";
+import router from "@/router/index.js";
 
 export const useCartStore = defineStore('cartStore',  {
 
@@ -104,6 +105,12 @@ export const useCartStore = defineStore('cartStore',  {
             this.cart = this.cart.filter((item) => item.id !== itemId)
 
             localStorage.setItem('cart', JSON.stringify(this.cart))
+
+            if(this.cart.length === 0) {
+
+                router.push({ name: 'cart' })
+
+            }
 
         },
 

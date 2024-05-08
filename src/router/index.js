@@ -95,7 +95,7 @@ const router = createRouter({
       component: TermsView,
     },
     {
-      path: '/register',
+      path: '/register/:referrer?',
       name: 'register',
       component: RegisterView,
       meta: {

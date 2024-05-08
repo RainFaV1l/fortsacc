@@ -3,7 +3,7 @@ import ButtonComponent from "@/components/UI/ButtonComponent.vue";
 import Checkbox from "@/components/UI/Checkbox.vue";
 import {ref, toRefs} from "vue";
 import {useUserStore} from "@/stores/UserStore.js";
-import {useRouter} from "vue-router";
+import {useRoute, useRouter} from "vue-router";
 
 const userStore = useUserStore()
 
@@ -29,6 +29,7 @@ const props = defineProps({
 })
 
 const router = useRouter()
+const route = useRoute()
 
 const { type } = toRefs(props);
 
@@ -42,18 +43,18 @@ const isChecked = ref(false)
 
 const sendRequest = async () => {
 
-  if(!isChecked.value) {
-
-    userStore.setError('Agree to the privacy policy.', 'is_checked')
-
-  }
-
   if(type.value === 'login') {
 
     const response = await userStore.login({
       email: email.value,
       password: password.value,
     })
+
+    if(!isChecked.value) {
+
+      userStore.setError('Agree to the privacy policy.', 'is_checked')
+
+    }
 
     if(response) {
 
@@ -78,25 +79,27 @@ const sendRequest = async () => {
       email_confirmation: emailConfirmation.value,
       password: password.value,
       password_confirmation: passwordConfirmation.value,
+      referral: route.params.referrer,
     })
+
+    if(!isChecked.value) {
+
+      userStore.setError('Agree to the privacy policy.', 'is_checked')
+
+    }
 
     if(response) {
 
       await router.push({name: 'welcome'})
 
-      return
-
     }
-
-    await router.push({name: 'register'})
 
   }
 
 }
 
-const capitalizeFirstLetter = (str) => {
-  return str.charAt(0).toUpperCase() + str.slice(1);
-}
+const capitalizeFirstLetter = (str) => str.charAt(0).toUpperCase() + str.slice(1);
+
 
 </script>
 
@@ -119,6 +122,7 @@ const capitalizeFirstLetter = (str) => {
         <div class="flex flex-col gap-[8px] w-[48%]" v-if="type === 'register'">
           <label class="manrope-medium text-accent-light-blue" for="first_name">First name</label>
           <input
+              required
               :class="userStore.errors.first_name && userStore.errors.first_name[0] ? 'border-red-500 placeholder:font-normal placeholder:text-red-500 placeholder:text-opacity-75' : ''"
               :placeholder="userStore.errors.first_name ? userStore.errors.first_name[0] : ''"
               v-model="firstName"
@@ -127,6 +131,7 @@ const capitalizeFirstLetter = (str) => {
         <div class="flex flex-col gap-[8px] w-[48%]" v-if="type === 'register'">
           <label class="manrope-medium text-accent-light-blue" for="last_name">Last name</label>
           <input
+              required
               :class="userStore.errors.last_name && userStore.errors.last_name[0] ? 'border-red-500 placeholder:font-normal placeholder:text-red-500 placeholder:text-opacity-75' : ''"
               :placeholder="userStore.errors.last_name ? userStore.errors.last_name[0] : ''"
               v-model="lastName"
@@ -135,6 +140,8 @@ const capitalizeFirstLetter = (str) => {
         <div class="flex flex-col gap-[8px] w-[48%]" :class="{ 'w-full' : type === 'login' }">
           <label class="manrope-medium text-accent-light-blue" for="email">E-mail address</label>
           <input
+              required
+              typeof="email"
               :class="userStore.errors && userStore.errors.email && userStore.errors.email[0] ? 'border-red-500 placeholder:text-red-500 placeholder:font-normal placeholder:text-opacity-75' : ''"
               :placeholder="userStore.errors && userStore.errors.email ? userStore.errors.email[0] : ''"
               v-model="email"
@@ -143,6 +150,8 @@ const capitalizeFirstLetter = (str) => {
         <div class="flex flex-col gap-[8px] w-[48%]" v-if="type === 'register'">
           <label class="manrope-medium text-accent-light-blue" for="email_confirmation">Repeat E-mail address</label>
           <input
+              required
+              typeof="email"
               :class="userStore.errors.email_confirmation && userStore.errors.email_confirmation[0] ? 'border-red-500 placeholder:font-normal placeholder:text-red-500 placeholder:text-opacity-75' : ''"
               :placeholder="userStore.errors.email_confirmation ? userStore.errors.email_confirmation[0] : ''"
               v-model="emailConfirmation"
@@ -151,6 +160,7 @@ const capitalizeFirstLetter = (str) => {
         <div class="flex flex-col gap-[8px] w-[48%]" :class="{ 'w-full' : type === 'login' }">
           <label class="manrope-medium text-accent-light-blue" for="password">Password</label>
           <input
+              required
               :class="userStore.errors && userStore.errors.password && userStore.errors.password[0] ?
               'border-red-500 placeholder:text-red-500 placeholder:font-normal placeholder:text-opacity-75' : ''"
               :placeholder="userStore.errors && userStore.errors.password ? userStore.errors.password[0] : ''"
@@ -160,6 +170,7 @@ const capitalizeFirstLetter = (str) => {
         <div class="flex flex-col gap-[8px] w-[48%]" v-if="type === 'register'">
           <label class="manrope-medium text-accent-light-blue" for="password_confirmation">Again password</label>
           <input
+              required
               :class="userStore.errors.password_confirmation && userStore.errors.password_confirmation[0] ? 'border-red-500 placeholder:font-normal placeholder:text-red-500 placeholder:text-opacity-75' : ''"
               :placeholder="userStore.errors.password_confirmation ? userStore.errors.password_confirmation[0] : ''"
               v-model="passwordConfirmation"
