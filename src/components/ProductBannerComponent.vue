@@ -70,15 +70,15 @@ const addToCart = async () => {
   <div :style="randomBg"
        style="background-size: cover; background-position: center">
     <Header/>
-    <div class="container pt-[60px] pb-[94px]">
+    <div class="container pt-[60px] pb-[94px] overflow-hidden">
       <div class="flex items-center justify-between pt-[60px]">
-        <div class="flex flex-col gap-[113px] w-[60%]">
+        <div class="flex flex-col gap-[113px] 1000:w-[60%]">
           <div class="flex flex-col gap-8">
             <div class="flex flex-col gap-6">
               <h1 class="uppercase text-[42px] font-extrabold leading-tight font-['Roboto']">{{ productStore.product.name }}</h1>
-              <p class="w-[557px] text-accent-light-blue manrope-semibold" v-html="productStore.product.description"></p>
+              <p class="1000:w-[557px] text-accent-light-blue manrope-semibold" v-html="productStore.product.description"></p>
             </div>
-            <div class="flex flex-col mr-[100px]">
+            <div class="flex flex-col 1000:mr-[100px]">
               <div class="p-5 bg-[#1C2147] border border-[#363C6F] rounded-[10px] rounded-b-none flex flex-col gap-4">
                 <div
                     class="flex items-center justify-between border-b border-[#363C6F] pb-[14px] text-accent-light-blue font-semibold">
@@ -216,11 +216,11 @@ const addToCart = async () => {
                   <p class="text-white">{{ productStore.product.mail }}</p>
                 </div>
               </div>
-              <div class="p-5 bg-[#1C2147] border border-t-0 border-[#363C6F] rounded-[10px] rounded-t-none flex items-center justify-between gap-[43px]]">
+              <div class="p-5 bg-[#1C2147] border border-t-0 border-[#363C6F] rounded-[10px] rounded-t-none flex flex-wrap items-center justify-between gap-[10px]">
                 <h3 class="text-accent-green text-[24px] manrope-extrabold">{{ productStore.formatPrice(productStore.product.price, 'ETH') }}</h3>
-                <div class="flex items-center gap-[15px]">
-                  <div class="flex items-center justify-between gap-[45px] border border-[#FFFFFF] border-opacity-15 rounded-[10px] py-[15px] px-[16px]">
-                      <button @click="cartItem ? cartStore.minus(route.params.id) : (counter > 1 ? counter-- : '')">
+                <div class="flex flex-col 450:flex-row items-center gap-[15px] w-full 1130:w-[auto]">
+                  <div class="flex sm:w-full 450:w-[auto] items-center justify-between gap-[45px] border border-[#FFFFFF] border-opacity-15 rounded-[10px] py-[15px] px-[16px]">
+                    <button @click="cartItem ? cartStore.minus(route.params.id) : (counter > 1 ? counter-- : '')">
                       <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M4.5 9H13.5" stroke="#9197C2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                       </svg>
@@ -233,15 +233,15 @@ const addToCart = async () => {
                       </svg>
                     </button>
                   </div>
-                  <ButtonComponent v-if="!cartItem" @click="addToCart()" class="text-[#151938] hover:text-white py-[15px] px-[55px]" type="green">Add to cart</ButtonComponent>
-                  <ButtonComponent @click="router.push({ name: 'payment' })" v-if="cartItem" class="text-[#151938] hover:text-white py-[15px] px-[55px]" type="green">Go to cart</ButtonComponent>
+                  <ButtonComponent v-if="!cartItem" @click="addToCart()" class="text-[#151938] hover:text-white py-[15px] px-[55px] w-full" type="green">Add to cart</ButtonComponent>
+                  <ButtonComponent @click="router.push({ name: 'payment' })" v-if="cartItem" class="text-[#151938] hover:text-white py-[15px] px-[55px] w-full" type="green">Go to cart</ButtonComponent>
                 </div>
               </div>
               <p class="mt-6 text-base manrope-medium text-accent-green">View game details <span class="text-white">or</span> view game on EpicGames</p>
             </div>
           </div>
         </div>
-        <div class="relative flex justify-end items-center flex-col gap-[22px] w-[40%]]">
+        <div class="relative hidden 1000:flex justify-end items-center flex-col gap-[22px] w-[40%]]">
           <div class="absolute h-[755px] w-[580px] top-1/2 -translate-y-1/2 -right-[70px]">
             <div class="h-full w-full flex justify-center">
               <img :src="banner" class="h-full w-full object-cover" alt="Баннер">

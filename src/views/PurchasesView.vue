@@ -13,15 +13,15 @@ import Header from "@/components/header/Header.vue";
     <div class="container pt-[70px] pb-[119px]">
       <div class="flex flex-col gap-5">
         <h2 class="text-[30px] manrope-semibold">My purchases</h2>
-        <div class="grid grid-cols-4 gap-x-[25px] gap-y-[20px]">
-          <PurchaseItemComponent type="Paid" :number="235663" name="Name of product" w="260"/>
-          <PurchaseItemComponent type="Ready" :number="235663" name="Name of product" w="260"/>
-          <PurchaseItemComponent type="Refund and Cancellation" :number="235663" name="Name of product" w="260"/>
-          <PurchaseItemComponent type="Ready" :number="235663" name="Name of product" w="260"/>
-          <PurchaseItemComponent type="Paid" :number="235663" name="Name of product" w="260"/>
-          <PurchaseItemComponent type="Ready" :number="235663" name="Name of product" w="260"/>
-          <PurchaseItemComponent type="Refund and Cancellation" :number="235663" name="Name of product" w="260"/>
-          <PurchaseItemComponent type="Ready" :number="235663" name="Name of product" w="260"/>
+        <div class="grid grid-cols-1 450:grid-cols-2 x:grid-cols-3 1100:grid-cols-4 gap-x-[25px] gap-y-[20px]">
+          <PurchaseItemComponent type="Paid" :number="235663" name="Name of product" />
+          <PurchaseItemComponent type="Ready" :number="235663" name="Name of product" />
+          <PurchaseItemComponent type="Refund and Cancellation" :number="235663" name="Name of product" />
+          <PurchaseItemComponent type="Ready" :number="235663" name="Name of product" />
+          <PurchaseItemComponent type="Paid" :number="235663" name="Name of product" />
+          <PurchaseItemComponent type="Ready" :number="235663" name="Name of product" />
+          <PurchaseItemComponent type="Refund and Cancellation" :number="235663" name="Name of product" />
+          <PurchaseItemComponent type="Ready" :number="235663" name="Name of product" />
         </div>
       </div>
     </div>

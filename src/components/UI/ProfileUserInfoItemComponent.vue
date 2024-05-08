@@ -1,7 +1,7 @@
 <template>
   <div style="background: url('/images/purchases/head-bg/bg.webp') no-repeat top; background-size: cover">
-    <div class="container py-[40px]">
-      <div class="flex items-center gap-[30px]">
+    <div class="container py-[100px] mx:py-[40px]">
+      <div class="flex flex-col mx:flex-row gap-[200px] items-center mx:gap-[30px]">
         <div class="relative w-[217px]">
           <div class="absolute top-[-70px]">
             <div class="h-[217px] w-[217px] bg-[#151938] bg-opacity-[67%] rounded-full flex items-center justify-center">

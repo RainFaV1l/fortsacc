@@ -34,13 +34,13 @@ onMounted(() => {
   <div class="flex flex-col" :style="url" style="background-size: cover; background-position: center">
     <Header/>
     <div class="flex-auto container pt-[150px] pb-[220px]">
-      <div class="flex items-center gap-7 justify-between">
-        <div class="flex flex-col gap-[60px] w-[55%]">
+      <div class="flex flex-col xl:flex-row items-center gap-[40px] xl:gap-7 justify-between">
+        <div class="flex flex-col gap-[60px] xl:w-[55%]">
           <div class="flex flex-col gap-5">
-            <h1 class="uppercase text-[52px] font-extrabold">Mystery Box</h1>
+            <h1 class="uppercase text-[40px] sl:text-[52px] font-extrabold">Mystery Box</h1>
             <p class="text-base font-semibold text-accent-light-blue">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
           </div>
-          <div class="flex items-center gap-5">
+          <div class="flex flex-wrap mx:flex-nowrap items-center gap-5">
             <div class="flex flex-col gap-2">
               <p class="text-[#9197C2] text-[14px] font-medium uppercase">Before the giveaway starts</p>
               <h3 class="text-[#9CFF4F] text-[28px] font-bold">11:30:28</h3>
@@ -55,7 +55,7 @@ onMounted(() => {
             </div>
           </div>
         </div>
-        <div class="w-[45%]">
+        <div class="xl:w-[45%]">
           <video autoplay loop muted playsinline style="width: 100%; height: auto; background-color: transparent;">
             <source src="/videos/mystery-box.mp4" type="video/mp4" style="background-color: #007aff">
           </video>
@@ -64,30 +64,30 @@ onMounted(() => {
     </div>
     <div class="container">
       <div class="flex items-center flex-col gap-[40px]">
-        <h2 class="uppercase text-5xl font-bold text-center">How to <span class="text-accent-green">take part</span> in the draw</h2>
-        <div class="flex items-center justify-between gap-[85px] w-full">
-          <div class="flex flex-col gap-[7px] w-[21.4%]">
+        <h2 class="uppercase text-[25px] m:text-5xl font-bold text-center">How to <span class="text-accent-green">take part</span> in the draw</h2>
+        <div class="flex flex-wrap xxl:flex-nowrap items-center justify-center m:justify-between gap-[40px] xxl:gap-[65px] 1000:gap-[85px] w-full">
+          <div class="flex flex-col gap-[7px] w-full m:w-[40%] xxl:w-[21.4%]">
             <div class="relative h-[87px] w-[95px]">
               <span class="text-[64px] text-accent-green font-bold">01</span>
               <span class="absolute top-[21px] right-[2px] h-9 w-9 backdrop-blur rounded-full"><img class="h-full w-full" src="/images/mystery-box/success.svg" alt="Icon"></span>
             </div>
             <p class="font-medium text-[22px]">Авторизуйтесь <br> (если не авторизирован)</p>
           </div>
-          <div class="flex flex-col gap-[7px] w-[21.4%]">
+          <div class="flex flex-col gap-[7px] w-full m:w-[40%] xxl:w-[21.4%]">
             <div class="relative h-[87px] w-[95px]">
               <span class="text-[64px] text-accent-green font-bold">02</span>
               <span class="absolute top-[21px] right-[2px] h-9 w-9 backdrop-blur rounded-full"><img class="h-full w-full" src="/images/mystery-box/success.svg" alt="Icon"></span>
             </div>
             <p class="font-medium text-[22px]">Сделайте репост в предложенных соц.сетях</p>
           </div>
-          <div class="flex flex-col gap-[7px] w-[21.4%]">
+          <div class="flex flex-col gap-[7px] w-full m:w-[40%] xxl:w-[21.4%]">
             <div class="relative h-[87px] w-[95px]">
               <span class="text-[64px] text-accent-green font-bold">03</span>
               <span class="absolute top-[21px] right-[2px] h-9 w-9 backdrop-blur rounded-full"><img class="h-full w-full" src="/images/mystery-box/success.svg" alt="Icon"></span>
             </div>
             <p class="font-medium text-[22px]">Нажмите кнопку Учавствовать в раздаче</p>
           </div>
-          <div class="flex items-start flex-col gap-[27px] w-[27.7%]">
+          <div class="flex items-start flex-col gap-[27px] w-full m:w-[40%] xxl:w-[27.7%]">
             <div class="flex items-start flex-col gap-[15px]">
               <p class="text-[14px] font-medium">Share on social networks:</p>
               <div class="flex items-center gap-[15px]">
@@ -141,9 +141,9 @@ onMounted(() => {
     </div>
     <div class="relative pt-[169px] pb-[75px] bg-left">
       <div class="flex justify-between items-center container">
-        <div class="w-[45%]"></div>
-        <div class="flex flex-col gap-[38px] w-[55%]">
-          <h3 class="text-5xl font-bold uppercase">Latest <span class="text-accent-green">winners</span></h3>
+        <div class="w-[45%] hidden x:block"></div>
+        <div class="flex flex-col gap-[38px] w-full x:w-[55%]">
+          <h3 class="text-[25px] m:text-5xl font-bold uppercase">Latest <span class="text-accent-green">winners</span></h3>
           <div class="border border-[#363C6F] rounded-[10px] winners-table">
             <ul class="flex justify-between gap-4 py-5 px-[30px] bg-[#1C2147] font-semibold text-lg">
               <li class="w-2/3">Nickname</li>

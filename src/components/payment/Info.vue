@@ -80,6 +80,9 @@ const sendRequest = async () => {
       password_confirmation: passwordConfirmation.value,
     })
 
+    password.value = ''
+    passwordConfirmation.value = ''
+
     if(response) {
 
       await router.push({name: 'welcome'})
