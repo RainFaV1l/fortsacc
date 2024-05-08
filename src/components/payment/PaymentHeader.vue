@@ -16,7 +16,7 @@
 </script>
 
 <template>
-  <div class="flex items-center justify-between text-center">
+  <div class="flex flex-col-reverse gap-4 sl:gap-0 sl:flex-row-reverse x:flex-row items-center justify-between text-center">
     <RouterLink :to="{ name: routeName }">
       <button class="button-outline hover:bg-gradient-blue py-[11px] pl-[14px] pr-[31px]">
         <div class="flex items-center gap-4">
@@ -30,7 +30,7 @@
       </button>
     </RouterLink>
     <h2 class="text-5xl font-['Roboto'] font-bold uppercase" v-html="title"></h2>
-    <button class="opacity-0 button-outline hover:bg-gradient-blue py-[11px] pl-[14px] pr-[31px]">
+    <button class="opacity-0 hidden x:block button-outline hover:bg-gradient-blue py-[11px] pl-[14px] pr-[31px]">
       <div class="flex items-center gap-4">
         <div>
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">

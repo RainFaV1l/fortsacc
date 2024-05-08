@@ -11,9 +11,9 @@ import router from "@/router/index.js";
       <div class="flex flex-col">
         <div class="pb-[60px] border-b border-white border-opacity-10">
           <div class="container">
-            <div class="grid grid-cols-4">
-              <div class="flex flex-col gap-[25px]">
-                <div class="flex flex-col gap-[22px]">
+            <div class="grid gap-20 x:gap-[0] grid-cols-1 x:grid-cols-4">
+              <div class="flex items-center x:items-start flex-col gap-[25px]">
+                <div class="flex items-center x:items-start flex-col gap-[22px]">
                   <RouterLink :to="{name: 'home'}">
                     <Logo name="Fortsacc" :h="39" :w="39" :font-size="20">
                       <IconLogo/>
@@ -46,7 +46,7 @@ import router from "@/router/index.js";
                   </a>
                 </div>
               </div>
-              <ul class="flex flex-col gap-[18px] items-center">
+              <ul class="flex flex-col gap-[18px] items-center text-center x:text-start">
                 <li class="cursor-pointer uppercase text-accent-light-blue font-bold w-[87px]">Accempire</li>
                 <li class="cursor-pointer w-[87px]">About Us</li>
                 <li class="cursor-pointer w-[87px]">Game Index</li>
@@ -57,13 +57,13 @@ import router from "@/router/index.js";
 <!--                <li class="cursor-pointer w-[133px]">Valorant</li>-->
 <!--                <li class="cursor-pointer w-[133px]">Genshin Impact</li>-->
 <!--              </ul>-->
-              <ul class="flex flex-col gap-[18px] items-center">
+              <ul class="flex flex-col gap-[18px] items-center text-center x:text-start">
                 <li class="cursor-pointer uppercase text-accent-light-blue font-bold w-[125px]">Support</li>
                 <li class="cursor-pointer w-[125px]">Contact us</li>
                 <li class="cursor-pointer w-[125px]">How to Buy?</li>
                 <li class="cursor-pointer w-[125px]">How to Register?</li>
               </ul>
-              <ul class="flex flex-col gap-[18px] items-end">
+              <ul class="flex flex-col gap-[18px] items-center text-center x:items-end x:text-start">
                 <li class="cursor-pointer uppercase text-accent-light-blue font-bold w-[161px]">Legalt</li>
                 <li @click="router.push({ name: 'terms' })" class="cursor-pointer w-[161px]">Terms and Conditions</li>
                 <li @click="router.push({ name: 'terms' })" class="cursor-pointer w-[161px]">Agreements</li>
@@ -75,7 +75,7 @@ import router from "@/router/index.js";
         </div>
         <div>
           <div class="container py-[30px]">
-            <div class="flex items-center justify-center gap-[80px]">
+            <div class="flex items-center justify-center gap-[80px] flex-wrap">
               <div>
                 <svg width="141" height="20" viewBox="0 0 141 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <g clip-path="url(#clip0_107_153)">

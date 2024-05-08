@@ -20,7 +20,7 @@ npm<script setup>
 
 <template>
   <div v-if="!item.mini" @click="router.push({ name: 'product', params: { id: item.id } })" class="relative cursor-pointer px-[33px] py-[30px] flex flex-col gap-[34px] rounded-[10px] border-2 border-[#363C6F]" :style="'background: url(' + item.bg + ');'" style="background-size: cover">
-    <div class="relative z-20 w-[274px] h-[274px]">
+    <div class="relative z-20 w-[100%] h-[274px]">
       <img :src="item.preview_image" alt="Иконка" class="h-full w-full object-contain">
     </div>
     <div class="relative flex flex-col gap-[24px] z-20">
@@ -36,7 +36,7 @@ npm<script setup>
     </div>
   </div>
   <div v-else @click="router.push({ name: 'product', params: { id: item.id } })" class="cursor-pointer relative px-[26px] py-[25px] flex flex-col gap-[17px] bg-[#1C2147] rounded-[10px] border-2 border-[#363C6F]" :style="'background: url(' + item.color + ');'" style="background-size: cover">
-    <div class="relative z-20 w-[201px] h-[201px]">
+    <div class="relative z-20 w-[100%] h-[201px]">
       <img :src="item.preview_image" alt="Иконка" class="h-full w-full object-contain">
     </div>
     <div class="relative flex flex-col gap-[17px] z-20">

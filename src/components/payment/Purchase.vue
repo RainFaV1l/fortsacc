@@ -17,7 +17,7 @@ const router = useRouter()
 <template>
   <div class="border border-[#363C6F] bg-[#1C2147] rounded-[10px] flex flex-col">
     <div class="border-b border-[#363C6F] pt-[32px] px-[32px] pb-[24px] flex flex-col gap-5">
-      <div class="relative flex justify-between items-center gap-7" v-for="product in cartStore.cart" :key="product.id">
+      <div class="relative flex sm:flex-col sl:flex-row flex-col text-center xxl:flex-row xxl:text-start justify-between items-center gap-7" v-for="product in cartStore.cart" :key="product.id">
         <div class="cursor-pointer relative border-[0.78px] border-[#363C6F] rounded-[3.91px] p-[13px]" @click="router.push({ name: 'product', params: { id: product.id } })">
           <div class="top-5 left-1/2 -translate-x-1/2 absolute w-[67.25px] h-[63.34px] bg-[#604FFF] bg-opacity-50 blur-[30px]"></div>
           <div class="h-[78.59px] w-[78.59px]">
