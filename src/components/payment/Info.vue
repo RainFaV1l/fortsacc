@@ -186,7 +186,8 @@ const capitalizeFirstLetter = (str) => str.charAt(0).toUpperCase() + str.slice(1
         </div>
       </div>
       <div class="flex items-center gap-7">
-        <ButtonComponent @click="sendRequest()" class="py-[13px] px-[71px] text-accent-dark-blue hover:text-white" type="green">{{ capitalizeFirstLetter(this.type) }}</ButtonComponent>
+        <ButtonComponent @click="sendRequest()" class="py-[15px] px-[63px]" type="blue">{{ capitalizeFirstLetter(type) }}</ButtonComponent>
+        <!--        <ButtonComponent @click="sendRequest()" class="py-[13px] px-[71px] text-accent-dark-blue hover:text-white" type="green">{{ capitalizeFirstLetter(this.type) }}</ButtonComponent>-->
       </div>
     </div>
   </div>

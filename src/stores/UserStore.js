@@ -24,7 +24,8 @@ export const useUserStore = defineStore('userStore',  {
         },
 
         async getCookie() {
-            await axios.get('http://127.0.0.1:8000/sanctum/csrf-cookie')
+            await axios.get('http://backend.u2603273.isp.regruhosting.ru/sanctum/csrf-cookie')
+            // http://127.0.0.1:8000/sanctum/csrf-cookie
         },
 
         async getToken() {
