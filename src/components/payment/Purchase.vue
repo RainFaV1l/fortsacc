@@ -3,7 +3,7 @@ import ButtonComponent from "@/components/UI/ButtonComponent.vue";
 import {useCartStore} from "@/stores/CartStore.js";
 import {XMarkIcon} from "@heroicons/vue/16/solid/index.js";
 import Checkbox from "@/components/UI/Checkbox.vue";
-import {ref} from "vue";
+import {onMounted, ref} from "vue";
 import {useRouter} from "vue-router";
 
 const cartStore = useCartStore()
@@ -31,13 +31,13 @@ const router = useRouter()
           <XMarkIcon class="h-7 w-7 cursor-pointer justify-self-end" @click="cartStore.destroyCartItem(product.id)"/>
         </div>
       </div>
-      <div class="flex items-center gap-[21px] border border-[#363C6F] rounded-[10px] py-4 px-5">
-        <Checkbox name="discount" v-model="isChecked"/>
-        <div class="flex flex-col gap-[3px]">
-          <h4 class="text-[#77DEFF] text-sm manrope-bold"><span class="uppercase">fast delivery</span> + $10</h4>
-          <p class="text-accent-light-blue manrope-regular text-[12px]">Get your orders 5x faster!</p>
-        </div>
-      </div>
+<!--      <div class="flex items-center gap-[21px] border border-[#363C6F] rounded-[10px] py-4 px-5">-->
+<!--        <Checkbox name="discount" v-model="isChecked"/>-->
+<!--        <div class="flex flex-col gap-[3px]">-->
+<!--          <h4 class="text-[#77DEFF] text-sm manrope-bold"><span class="uppercase">fast delivery</span> + $10</h4>-->
+<!--          <p class="text-accent-light-blue manrope-regular text-[12px]">Get your orders 5x faster!</p>-->
+<!--        </div>-->
+<!--      </div>-->
       <h3 class="uppercase text-center text-2xl manrope-extrabold text-[#9CFF4F]">total: $50</h3>
     </div>
     <div class="flex flex-col items-center gap-5 pt-6 pb-8 px-8">
