@@ -14,7 +14,7 @@ defineProps({
 </script>
 
 <template>
-  <div class="relative h-[360px] w-[32%] cursor-pointer">
+  <div class="relative h-[360px] w-[55%] m:w-[32%] cursor-pointer">
     <div class="absolute top-0 left-1/2 -translate-x-1/2">
       <IconComponent :src="src" :w2="92" :h2="92" :h1="128" :w1="128"/>
     </div>

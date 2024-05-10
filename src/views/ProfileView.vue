@@ -13,21 +13,21 @@ const userStore = useUserStore()
   <div style="background-size: cover; background: url('/images/profile/bg/bg.webp') top;">
     <div class="bg-[#0C0C1D] drop-shadow-[0,4px,49px,rgba(0,0,0,25%)] py-[27px]">
       <div class="container">
-        <div class="flex items-center gap-[40px]">
-          <div class="flex items-center gap-5">
+        <div class="flex flex-col xs:flex-row items-center gap-[40px]">
+          <div class="flex flex-col m:flex-row m:items-center gap-5 w-full xs:w-[55%]">
             <div class="h-[139px] w-[139px]">
               <img class="h-full w-full rounded-full object-cover" src="/images/profile/avatar.svg" alt="Аватарка">
             </div>
             <div class="flex flex-col gap-5">
               <div class="flex flex-col gap-[1px]">
-                <h3 class="uppercase roboto-bold text-4xl">{{ userStore.user.first_name + ' ' + userStore.user.last_name }}</h3>
+                <h3 class="uppercase roboto-bold text-[25px] 1100:text-4xl">{{ userStore.user.first_name + ' ' + userStore.user.last_name }}</h3>
                 <p class="manrope-medium text-[14px]">example@info.com</p>
               </div>
               <BalanceComponent/>
             </div>
           </div>
-          <div class="relative">
-            <div class="absolute top-1/2 -translate-y-1/2 flex items-center gap-5">
+          <div class="overflow-x-scroll w-full xs:w-[auto]">
+            <div class="flex items-center gap-5 w-[830px]">
               <div class="flex flex-col gap-[10px] bg-[rgba(17,16,11,.3)] border border-[#897CFF] rounded-[5px] p-5 w-[260px]">
                 <h4 class="text-[20px] roboto-bold">Name of product</h4>
                 <div class="flex flex-col gap-[5px]">
@@ -70,7 +70,7 @@ const userStore = useUserStore()
       </div>
     </div>
     <div class="container pt-[80px] pb-[60px]">
-      <div class="flex items-center gap-[30px]">
+      <div class="flex flex-col mx:flex-row items-center gap-[0px] mx:gap-[30px]">
         <BenefitCartComponent @click="$router.push({ name: 'affiliate' })" src="/images/profile/affiliate.svg" name="Affiliate program"/>
         <BenefitCartComponent @click="$router.push({ name: 'purchases' })" src="/images/profile/cart.svg" name="My purchases"/>
         <BenefitCartComponent src="/images/profile/support.svg" name="Support"/>

@@ -81,8 +81,8 @@ onBeforeRouteUpdate((to, from, next) => {
       <ProductBannerComponent/>
       <div class="border-b border-white border-opacity-10" :style="'background: url(' + BgProducts + ');'" style="background-size: cover; background-repeat: no-repeat">
         <div class="container pt-[70px] pb-[170px]">
-          <h2 class="text-5xl font-['Roboto'] font-bold uppercase text-center">How do you receive <span class="text-accent-green">the product?</span></h2>
-          <div class="mt-[71px] flex justify-center gap-[28px]">
+          <h2 class="text-[25px] sl:text-5xl font-['Roboto'] font-bold uppercase text-center">How do you receive <span class="text-accent-green">the product?</span></h2>
+          <div class="mt-[71px] flex flex-wrap justify-center gap-[28px]">
             <ReceiveItem v-for="receiveItem in receiveItems" :item="receiveItem" :key="receiveItem.id"/>
           </div>
         </div>

@@ -20,7 +20,7 @@ const showAnimation = ref(true)
 
 <template>
   <div class="wrapper bg-accent-dark-blue text-white manrope-regular">
-    <VuePreloader
+    <!-- <VuePreloader
         background-color="#151938"
         transition-type="fade-up"
         :loading-speed="25"
@@ -39,7 +39,7 @@ const showAnimation = ref(true)
             </span>
           </div>
         </template>
-    </VuePreloader>
+    </VuePreloader> -->
     <Up/>
     <transition name="popup"><Cookies v-show="mainStore.showPopup && !mainStore.cookie_consent" class="popup"/></transition>
     <RouterView />

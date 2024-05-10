@@ -55,7 +55,7 @@ const swiperOptions = {
         <div class="flex items-center flex-col gap-[22px] w-[100%] xxl:[60%] overflow-hidden mx-[auto] xxl:mx-[0px]"> 
           <div class=""> 
             <swiper 
-              :loop="false" 
+              :loop="true" 
               :effect="'coverflow'" 
               :grabCursor="true" 
               :modules="modules" 
@@ -96,4 +96,13 @@ const swiperOptions = {
 .slide{
   width: 318px !important;
 }  
+.swiper-slide-next{
+  transform: translate3d(-150px, 0px, -100px) rotateX(0deg) rotateY(0deg) scale(1) rotateZ(17deg) !important;
+}
+.swiper-slide-prev{
+  transform: translate3d(150px, 0px, -100px) rotateX(0deg) rotateY(0deg) scale(1) rotateZ(-17deg) !important;
+}
+.swiper-3d {
+    perspective: 500px !important;
+}
 </style>

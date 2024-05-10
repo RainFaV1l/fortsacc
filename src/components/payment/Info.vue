@@ -82,6 +82,8 @@ const sendRequest = async () => {
       referral: route.params.referrer,
     })
 
+    password.value = ''
+    passwordConfirmation.value = ''
     if(!isChecked.value) {
 
       userStore.setError('Agree to the privacy policy.', 'is_checked')

@@ -71,7 +71,7 @@
 </script>
 
 <template>
-  <div class="flex flex-col gap-[5px] bg-[rgba(17,16,11,.3)] border border-[#897CFF] rounded-[5px] p-5" :style="`width: ${w}px`">
+  <div class="flex flex-col gap-[5px] bg-[rgba(17,16,11,.3)] border border-[#897CFF] rounded-[5px] p-5" :style="`width: 100%`">
     <h4 class="text-[20px] roboto-bold">{{ name }}</h4>
     <div class="flex flex-col gap-[5px]">
       <p class="text-white text-opacity-60 roboto-light text-[15px]">№ {{ number }}</p>
