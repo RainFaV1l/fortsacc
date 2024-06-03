@@ -78,7 +78,7 @@ const swiperPrevSlide = () => {
           class="popularProductsSwiper">
         <swiper-slide v-for="(item, index) in productStore.getPopularProducts" :key="index"><ProductItem :item="item"/></swiper-slide>
       </swiper>
-      <div v-else>
+      <div v-else class="flex items-center justify-start gap-[30px] w-full">
         <template v-if="productStore.getPopularProducts.length > 0">
           <ProductItem v-for="(item, index) in productStore.getPopularProducts" :key="index" :item="item"/>
         </template>

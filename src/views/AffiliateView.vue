@@ -34,7 +34,7 @@ const copy = () => {
 
 <template>
   <Header/>
-  <ProfileUserInfoItemComponent/>
+  <ProfileUserInfoItemComponent class="py-[50px]"/>
   <div style="background: url('/images/purchases/bg/bg.webp') no-repeat top; background-size: cover">
     <div class="container pt-[70px] pb-[181px]">
       <div class="flex flex-col gap-[30px]">
@@ -44,14 +44,9 @@ const copy = () => {
         </div>
         <div class="flex flex-col mx:flex-row mx:items-center gap-[10px] mx:gap-[40px]">
           <p class="text-2xl manrope-medium mx:w-[13%]">Referral link:</p>
-          <div class="flex flex-col sl:flex-row sl:items-center gap-[15px] mx:w-[87%]">
-            <input class="text-[14px] px-[25px] py-[24px] bg-[rgba(17,16,11,.3)] border border-[#897CFF] rounded-[10px] w-[100%]" type="text" :value="appUrl + 'register/' + userStore.user.referral_link">
-            <ButtonComponent class="py-[15px] mx:py-[22px] px-[50px] mx:px-[78px]" type="blue">Copy link</ButtonComponent>
-        <div class="flex items-center gap-[40px]">
-          <p class="text-2xl manrope-medium w-[13%]">Referral link:</p>
           <div class="flex items-center gap-[15px] w-[87%]">
-            <input v-model="link" class="text-[14px] px-[25px] py-[24px] bg-[rgba(17,16,11,.3)] border border-[#897CFF] rounded-[10px] w-[74%]" type="text">
-            <ButtonComponent @click="copy" class="py-[22px]" :class="[!isCopied ? 'px-[78px]' : 'px-[70px]']" type="blue">{{ isCopied ? 'Link copied' : 'Copy link' }}</ButtonComponent>
+            <input v-model="link" class="text-[14px] px-[25px] py-[24px] bg-[rgba(17,16,11,.3)] border border-[#897CFF] rounded-[10px] w-[100%]" type="text">
+            <ButtonComponent @click="copy" class="py-[15px] mx:py-[22px] px-[50px]" :class="[!isCopied ? 'px-[78px]' : 'px-[70px]']" type="blue">{{ isCopied ? 'Link copied' : 'Copy link' }}</ButtonComponent>
           </div>
         </div>
         <div class="flex flex-col gap-[30px]">

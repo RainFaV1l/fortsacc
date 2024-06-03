@@ -13,7 +13,7 @@
         </div>
         <div class="flex flex-col gap-[20px]">
           <h1 class="uppercase text-4xl roboto-bold">User name</h1>
-          <BalanceComponent/>
+          <!--<BalanceComponent/>-->
         </div>
       </div>
     </div>

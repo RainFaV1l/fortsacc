@@ -7,10 +7,12 @@ import Purchase from "@/components/payment/Purchase.vue";
 import Info from "@/components/payment/Info.vue";
 import Header from "@/components/header/Header.vue";
 import PaymentHeader from "@/components/payment/PaymentHeader.vue";
+import {useUserStore} from "@/stores/UserStore.js";
 
 const url = ref(`background: url(${BgImage});`)
 
 const route = useRoute()
+const userStore = useUserStore()
 
 onBeforeRouteLeave((to, from, next) => {
 
@@ -61,8 +63,6 @@ const footerToBottom = () => {
 
 onMounted(() => {
 
-  // redirect()
-
   footerToBottom()
 
 })
@@ -76,7 +76,9 @@ onMounted(() => {
       <div class="container py-[45px]">
         <PaymentHeader routeName="home"/>
         <div class="flex flex-col xl:flex-row items-start justify-between mt-[32px] gap-[30px]">
-          <Info class="w-[100%] xl:w-[65%]" type="payment"/>
+          <div class="w-[100%] xl:w-[65%]">
+            <Info type="payment" :breadcrumbs="{ current: { name: 'Create order', value: 'Personal information' } }"/>
+          </div>
           <Purchase class="w-[100%] x:w-[50%] xl:w-[35%] mx-[auto] xl:mx-[0]"/>
         </div>
       </div>

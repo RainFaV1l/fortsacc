@@ -9,26 +9,37 @@ import Exit from "@/components/header/Exit.vue";
 import Cart from "@/components/header/Cart.vue"; 
 import {useRouter} from "vue-router"; 
 import {useUserStore} from "@/stores/UserStore.js"; 
-import {ref} from "vue"; 
+import {ref} from "vue";
+import {useToast} from "vue-toastification";
  
 const userStore = useUserStore() 
  
  
 const isAuth = ref(userStore.isAuth) 
  
-const router = useRouter() 
+const router = useRouter()
+
+const toast = useToast()
  
-const logoutHandle = async () => { 
+const logoutHandle = async () => {
+
+  userStore.isLoading = true
  
   const logoutMessage = await userStore.logout(); 
  
-  if (logoutMessage) { 
+  if (logoutMessage) {
+
+    userStore.isLoading = false
  
-    await router.push({name: 'login'}) 
+    await router.push({name: 'login'})
+
+    toast.success("Successful exit", {
+      timeout: 2000
+    });
  
     return 
  
-  } 
+  }
  
   console.error('Не удалось выйти из системы.'); 
  

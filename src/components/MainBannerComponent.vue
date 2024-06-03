@@ -45,7 +45,7 @@ const swiperOptions = {
             </div> 
             <div class="flex items-center flex-col sl:flex-row justify-center xxl:justify-start  gap-5 manrope-extrabold"> 
               <ButtonComponent @click="router.push({ name: 'news' })" class="py-[15px] px-[63px]" type="blue">News</ButtonComponent> 
-              <ButtonComponent class="py-[15px] px-[63px]" :border="true" type="blue">Reviews</ButtonComponent> 
+              <ButtonComponent @click="router.push({ name: 'reviews' })" class="py-[15px] px-[63px]" :border="true" type="blue">Reviews</ButtonComponent>
             </div> 
           </div> 
           <div class="flex items-center gap-[15px] m:gap-[34px] flex-wrap m:flex-nowrap justify-center xxl:justify-start"> 

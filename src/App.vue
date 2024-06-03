@@ -5,8 +5,11 @@ import Cookies from "@/components/Cookies.vue";
 import {useMainStore} from "@/stores/MainStore.js";
 import {VuePreloader} from "vue-preloader";
 import {ref} from "vue";
+import {useUserStore} from "@/stores/UserStore.js";
+import PageLoading from "@/components/UI/PageLoading.vue";
 
 const mainStore = useMainStore()
+const userStore = useUserStore()
 
 // Отображение всплывающего окна каждые 10 минут
 mainStore.showPopupWithInterval()
@@ -20,13 +23,15 @@ const showAnimation = ref(true)
 
 <template>
   <div class="wrapper bg-accent-dark-blue text-white manrope-regular">
-    <!-- <VuePreloader
+    <PageLoading v-show="userStore.isLoading"/>
+<!--    <Loading size="12" v-show="userStore.isLoading" color="white" class="fixed h-full w-full z-50 flex items-center justify-center bg-accent-dark-blue"/>-->
+    <VuePreloader
         background-color="#151938"
         transition-type="fade-up"
         :loading-speed="25"
         :transition-speed="1400"
         @loading-is-over="showAnimation = false"
-        @transition-is-over="false"
+        @transition-is-over="true"
         class="absolute h-full w-full z-50
         text-center flex items-center justify-center
         text-white
@@ -39,7 +44,7 @@ const showAnimation = ref(true)
             </span>
           </div>
         </template>
-    </VuePreloader> -->
+    </VuePreloader>
     <Up/>
     <transition name="popup"><Cookies v-show="mainStore.showPopup && !mainStore.cookie_consent" class="popup"/></transition>
     <RouterView />

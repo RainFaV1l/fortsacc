@@ -14,7 +14,7 @@ const productStore = useProductStore();
         <div class="grid grid-cols-1 gap-[26px] xxl:grid-cols-4 xs:grid-cols-3 mx:grid-cols-2" v-if="!productStore.category.id">
           <ProductItem v-for="(item, index) in productStore.products" :key="index" :item="{ ...item, mini: true }"/>
         </div>
-        <div class="grid grid-cols-1 gap-[26px] xxl:grid-col-4 xs:grid-cols-3 mx:grid-cols-2" v-else>
+        <div class="grid grid-cols-1 gap-[26px] xxl:grid-cols-4 xs:grid-cols-3 mx:grid-cols-2" v-else>
           <ProductItem v-for="(item, index) in productStore.getProductsByCategory" :key="index" :item="{ ...item, mini: true }"/>
         </div>
       </div>
