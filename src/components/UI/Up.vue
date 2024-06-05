@@ -35,7 +35,7 @@
 
 <template>
   <button @scroll="scrollButton" @click="scrollToTop"
-          type="button" class="fixed right-[30px] bottom-[30px] h-[60px] w-[60px]
+          type="button" class="fixed z-[99999] right-[30px] bottom-[30px] h-[60px] w-[60px]
           bg-gradient-blue-light text-white rounded-full justify-center
           flex items-center hover:bg-[#432EF6FF] transition-all duration-300"
           :style="mainStore.showUp ? 'visibility: visible; opacity: 1;' : 'visibility: hidden; opacity: 0;'">
