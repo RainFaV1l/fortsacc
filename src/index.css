@@ -52,4 +52,13 @@
     .header-item {
         @apply relative cursor-pointer flex justify-center transition hover:text-accent-green;
     }
+
+    *{
+        scrollbar-color: none;
+    }
+
+    .profile-scroll::-webkit-scrollbar{
+        height: 3px !important;
+        border-radius: 100px;
+    }
 }

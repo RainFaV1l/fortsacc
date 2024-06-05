@@ -21,13 +21,13 @@ const userStore = useUserStore()
             </div>
             <div class="flex flex-col gap-5">
               <div class="flex flex-col gap-[1px]">
-                <h3 class="uppercase roboto-bold text-[25px] 1100:text-4xl">{{ (userStore.user.first_name ? userStore.user.first_name : '') + ' ' + (userStore.user.last_name ? userStore.user.last_name : '')  }}</h3>
-                <p class="manrope-medium text-[14px]">{{ userStore.user.email }}</p>
+              <span class="uppercase roboto-bold text-[25px] 1100:text-4xl">{{ userStore.user.first_name + ' ' + userStore.user.last_name }}</span>
+                <p class="manrope-medium text-[14px]">example@info.com</p>
               </div>
               <!--<BalanceComponent/>-->
             </div>
           </div>
-          <div class="overflow-x-scroll w-full xs:w-[auto]">
+          <div class="overflow-x-scroll w-full xs:w-[auto] profile-scroll">
             <div class="flex items-center gap-5 w-[830px]">
               <Order/>
               <Order/>

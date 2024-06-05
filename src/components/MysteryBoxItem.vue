@@ -14,7 +14,7 @@ defineProps({
       <h4 class="jomhuria-regular text-[52px] leading-10">{{ item.name }}</h4>
     </div>
     <div class="relative">
-      <div class="relative h-[279px] w-[273px] z-20">
+      <div class="relative z-20 h-[250px] xl:h-auto">
         <img :src="item.image" alt="Иконка" class="h-full w-full object-contain">
       </div>
       <div class="z-10 absolute bottom-[78px] left-1/2 -translate-x-1/2 w-[241px] h-[174px] blur-[154px]" :style="'background:' + item.color + ';'"></div>
