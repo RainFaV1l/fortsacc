@@ -4,6 +4,8 @@ export const auth = async ({ next }) => {
 
     const userStore = useUserStore()
 
+    userStore.isLoading = true
+
     const isAuth = await userStore.getUser()
 
     userStore.user = isAuth
@@ -14,6 +16,8 @@ export const auth = async ({ next }) => {
 
         userStore.isAuth = false
 
+        userStore.isLoading = false
+
         next({
             name: 'login'
         })
@@ -21,6 +25,8 @@ export const auth = async ({ next }) => {
         return
 
     }
+
+    userStore.isLoading = false
 
     next()
 

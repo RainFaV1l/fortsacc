@@ -47,7 +47,7 @@ npm<script setup>
       <div class="flex items-center justify-between gap-4" @click.stop>
         <ButtonComponent v-if="!cartStore.getCartItem(item.id)" @click="cartStore.setCart(item)" class="text-[#1C2147] py-[12px] px-[40px] hover:text-white" type="green">Buy</ButtonComponent>
         <ButtonComponent v-if="cartStore.getCartItem(item.id)" @click="cartStore.setCart(item)" class="text-[#1C2147] py-[12px] px-[20px] w-[130px] hover:text-white" type="green">In cart | {{ cartStore.getCartItem(item.id)?.count }}</ButtonComponent>
-        <p class="text-base] manrope-extrabold text-[#9CFF4F]">{{ productStore.formatPrice(item.price, item.currency) }}</p>
+        <p class="text-base] manrope-extrabold text-[#9CFF4F]">{{ productStore.formatPrice(item.price) }}</p>
       </div>
     </div>
   </div>

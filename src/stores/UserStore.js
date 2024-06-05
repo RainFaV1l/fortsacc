@@ -1,5 +1,7 @@
 import {defineStore} from "pinia";
 import axios from "axios";
+import router from "@/router/index.js";
+import {useToast} from "vue-toastification";
 
 export const useUserStore = defineStore('userStore',  {
 
@@ -7,6 +9,7 @@ export const useUserStore = defineStore('userStore',  {
         errors: {},
         isAuth: JSON.parse(localStorage.getItem('token')) || false,
         user: null,
+        isLoading: false
     }),
 
     getters: {
@@ -24,7 +27,7 @@ export const useUserStore = defineStore('userStore',  {
         },
 
         async getCookie() {
-            await axios.get('http://127.0.0.1:8000/sanctum/csrf-cookie')
+            await axios.get(import.meta.env.VITE_APP_CSRF_TOKEN_URL)
         },
 
         async getToken() {
@@ -131,29 +134,39 @@ export const useUserStore = defineStore('userStore',  {
 
         },
 
+        removeToken() {
+
+            this.isAuth = false
+
+            this.user = null
+
+            localStorage.removeItem('token')
+
+            delete axios.defaults.headers.common['Authorization'];
+
+        },
+
         async logout() {
 
             try {
+
+                await this.getCookie()
+
+                await this.getUser()
 
                 const response = await axios.post('/logout')
 
                 if(response.status === 200) {
 
-                    this.isAuth = false
-
-                    this.user = null
-
-                    localStorage.removeItem('token')
-
-                    await this.getCookie()
-
-                    delete axios.defaults.headers.common['Authorization'];
+                    this.removeToken()
 
                     return response.data.message
 
                 } else {
 
                     console.error('Ошибка при выходе из системы:', response.statusText)
+
+                    localStorage.removeItem('token')
 
                     return false
 
@@ -166,8 +179,42 @@ export const useUserStore = defineStore('userStore',  {
                 return false
             }
 
+        },
+
+        async loginWithProvider(provider) {
+            window.location.href = import.meta.env.VITE_APP_API_URL + `/auth/${provider}`;
+        },
+
+        async checkOAuth(token) {
+
+            const toast = useToast()
+
+            this.authHandle(token)
+
+            this.user = await this.getUser()
+
+            if(!this.user) {
+
+                this.removeToken()
+
+                await router.push({name: 'login'})
+
+                toast.error("Invalid authorization token", {
+                    timeout: 2000
+                });
+
+                return
+
+            }
+
+            await router.push({name: 'profile'})
+
+            toast.success("Successful authorization", {
+                timeout: 2000
+            });
+
         }
 
-    }
+    },
 
 })

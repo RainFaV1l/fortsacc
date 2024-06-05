@@ -18,6 +18,12 @@ import {useUserStore} from "@/stores/UserStore.js";
 import {auth} from "@/router/middleware/auth.js";
 import {guest} from "@/router/middleware/guest.js";
 import PageNotFound from "@/views/PageNotFound.vue";
+import ShowNewsView from "@/views/ShowNewsView.vue";
+import {useNewsStore} from "@/stores/NewsStore.js";
+import ReviewView from "@/views/ReviewView.vue";
+import {useReviewStore} from "@/stores/ReviewStore.js";
+import ReviewWriteView from "@/views/ReviewWriteView.vue";
+import OAuth from "@/views/OAuth.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -90,12 +96,17 @@ const router = createRouter({
       component: NewsView,
     },
     {
+      path: '/news/:id',
+      name: 'showNews',
+      component: ShowNewsView,
+    },
+    {
       path: '/terms',
       name: 'terms',
       component: TermsView,
     },
     {
-      path: '/register',
+      path: '/register/:referrer?',
       name: 'register',
       component: RegisterView,
       meta: {
@@ -111,6 +122,22 @@ const router = createRouter({
       },
     },
     {
+      path: '/reviews',
+      name: 'reviews',
+      component: ReviewView,
+    },
+    {
+      path: '/review/write',
+      name: 'writeReview',
+      component: ReviewWriteView,
+    },
+    {
+      path: '/oauth/callback/:token',
+      name: 'oauth',
+      component: OAuth,
+    },
+    {
+      name: '404',
       path: '/:pathMatch(.*)*',
       component: PageNotFound
     }
@@ -122,6 +149,12 @@ const router = createRouter({
         behavior: 'smooth',
       }
     }
+    // Обнуление скролла, если не сохранена позиция
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { top: 0 }
+    }
   },
 })
 
@@ -129,11 +162,9 @@ const redirectToCart = (next) => {
 
   const cartStore = useCartStore()
 
-  if(cartStore.cart.length === 0) {
+  if(cartStore.cart.length === 0) next({ name: 'cart' })
 
-    next({ name: 'cart' })
-
-  } else next()
+  else next()
 
 }
 
@@ -147,10 +178,20 @@ const clearErrors = () => {
 
 router.beforeEach(async (to, from, next) => {
 
+  const newsStore = useNewsStore()
+  const reviewStore = useReviewStore()
   const requireAuth = to.matched.some(record => record.meta.middleware === 'auth')
   const requireGuest = to.matched.some(record => record.meta.middleware === 'guest')
 
   clearErrors()
+
+  newsStore.currentPage = 1
+  newsStore.lastPage = null
+  newsStore.news = []
+
+  reviewStore.currentPage = 1
+  reviewStore.lastPage = null
+  reviewStore.reviews = []
 
   if(requireAuth) {
     await auth({ next })
@@ -160,13 +201,9 @@ router.beforeEach(async (to, from, next) => {
     await guest({ next })
   }
 
-  else if(to.name === 'payment') {
-    redirectToCart(next)
-  }
+  else if(to.name === 'payment') redirectToCart(next)
 
-  else {
-    next()
-  }
+  else next()
 
 
 

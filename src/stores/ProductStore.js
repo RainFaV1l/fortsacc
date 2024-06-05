@@ -1,6 +1,7 @@
 import {defineStore} from "pinia";
 import axios from "axios";
 import {computed} from "vue";
+import router from "@/router/index.js";
 
 export const useProductStore = defineStore('productStore', {
 
@@ -48,9 +49,9 @@ export const useProductStore = defineStore('productStore', {
 
         },
 
-        formatPrice(price, currency) {
+        formatPrice(price) {
 
-            return new Intl.NumberFormat('en-US', {style: 'currency', currency: currency, maximumFractionDigits: 0}).format(price);
+            return new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD', maximumFractionDigits: 2}).format(price);
 
         },
 
@@ -99,6 +100,8 @@ export const useProductStore = defineStore('productStore', {
             } catch(exception) {
 
                 this.errors = exception.response.data.errors
+
+                await router.push({name: '404'})
 
                 return false
 
