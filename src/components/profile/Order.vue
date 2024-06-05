@@ -4,7 +4,7 @@
 
 <template>
   <div class="flex flex-col gap-[10px] bg-[rgba(17,16,11,.3)] border border-[#897CFF] rounded-[5px] p-5 w-[260px]">
-    <h4 class="text-[20px] roboto-bold">Name of product</h4>
+    <span class="text-[20px] roboto-bold">Name of product</span>
     <div class="flex flex-col gap-[5px]">
       <p class="text-white text-opacity-60 roboto-light text-[15px]">№ 235663</p>
       <div class="flex items-center gap-[5px]">
