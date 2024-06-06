@@ -72,7 +72,7 @@
 
 <template>
   <div class="flex flex-col gap-[5px] bg-[rgba(17,16,11,.3)] border border-[#897CFF] rounded-[5px] p-5" :style="`width: 100%`">
-    <h4 class="text-[20px] roboto-bold">{{ name }}</h4>
+    <span class="text-[20px] roboto-bold">{{ name }}</span>
     <div class="flex flex-col gap-[5px]">
       <p class="text-white text-opacity-60 roboto-light text-[15px]">№ {{ number }}</p>
       <div class="flex items-center gap-[5px]">
