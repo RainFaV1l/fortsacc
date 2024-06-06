@@ -1,7 +1,7 @@
 <script setup>
 import ButtonComponent from "@/components/UI/ButtonComponent.vue";
 import Checkbox from "@/components/UI/Checkbox.vue";
-import {ref, toRefs} from "vue";
+import {onMounted, ref, toRefs} from "vue";
 import {useUserStore} from "@/stores/UserStore.js";
 import {useRoute, useRouter} from "vue-router";
 import Loading from "@/components/UI/Loading.vue";
@@ -36,6 +36,8 @@ const props = defineProps({
 const router = useRouter()
 const route = useRoute()
 
+const user = ref(null)
+
 const { type } = toRefs(props);
 
 const firstName = ref('')
@@ -45,6 +47,13 @@ const emailConfirmation = ref('')
 const password = ref('')
 const passwordConfirmation = ref('')
 const isChecked = ref(false)
+
+onMounted(async () => {
+  user.value = await userStore.getUser()
+  firstName.value = user.value && user.value.first_name ? user.value.first_name : ''
+  lastName.value = user.value && user.value.lastName ? user.value.lastName : ''
+  email.value = user.value && user.value.email ? user.value.email : ''
+})
 
 const isLoading = ref(true)
 
@@ -146,6 +155,12 @@ const sendRequest = async () => {
         products: cartStore.cart,
         email_confirmation: emailConfirmation.value,
       })
+
+      await router.push({name: 'profile'})
+
+      toast.success("Successful ordering", {
+        timeout: 2000
+      });
 
     }
 

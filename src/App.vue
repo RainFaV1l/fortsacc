@@ -17,6 +17,8 @@ mainStore.showPopupWithInterval()
 // Показ popup при входе на сайт с задержкой в 3с
 mainStore.showPopup()
 
+
+
 const showAnimation = ref(true)
 
 </script>

@@ -65,8 +65,8 @@ const logoutHandle = async () => {
             <Cart/> 
           </RouterLink> 
           <div class="flex items-center gap-[10px]" v-if="!isAuth"> 
-            <router-link :to="{ name: 'login' }"><ButtonComponent class="py-[6px] px-[16px] x:py-[10px] x:px-[35px] text-[10px] x:text-[14px]" :border="true" type="blue">Log in</ButtonComponent></router-link> 
-            <router-link :to="{ name: 'register' }"><ButtonComponent class="py-[6px] px-[16px] x:py-[10px] x:px-[35px] text-[10px] x:text-[14px]" type="blue">Sign in</ButtonComponent></router-link> 
+            <router-link :to="{ name: 'login' }"><ButtonComponent class="py-[6px] px-[16px] x:py-[10px] x:px-[35px] text-[14px]" :border="true" type="blue">Log in</ButtonComponent></router-link>
+            <router-link :to="{ name: 'register' }"><ButtonComponent class="py-[6px] px-[16px] x:py-[10px] x:px-[35px] text-[14px]" type="blue">Sign in</ButtonComponent></router-link>
           </div> 
           <div v-else class="flex items-center gap-[20px] cursor-pointer ml-[37px]"> 
             <User @click="router.push({ name: 'profile' })"/> 

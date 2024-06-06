@@ -5,8 +5,12 @@ import BalanceComponent from "@/components/UI/BalanceComponent.vue";
 import Header from "@/components/header/Header.vue";
 import {useUserStore} from "@/stores/UserStore.js";
 import Order from "@/components/profile/Order.vue";
+import {useOrderStore} from "@/stores/OrderStore.js";
 
 const userStore = useUserStore()
+const orderStore = useOrderStore()
+
+console.log(orderStore.orders)
 </script>
 
 <template>

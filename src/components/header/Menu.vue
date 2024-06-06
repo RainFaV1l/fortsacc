@@ -6,8 +6,8 @@
  
 <template> 
   <ul class="flex items-center gap-5 text-base text-[#9197C2] font-semibold"> 
-    <li class="text-[8px] m:text-[11px] x:text-[14px] header-item menu-link" :class="route.name === 'home' ? 'active' : ''"><router-link :to="{ name: 'home' }">Home</router-link></li> 
-    <li class="text-[8px] m:text-[11px] x:text-[14px] header-item menu-link" :class="route.name === 'faq' ? 'active' : ''"><router-link :to="{ name: 'faq' }">FAQ</router-link></li> 
+    <li class="text-[14px] header-item menu-link" :class="route.name === 'home' ? 'active' : ''"><router-link :to="{ name: 'home' }">Home</router-link></li>
+    <li class="text-[14px] header-item menu-link" :class="route.name === 'faq' ? 'active' : ''"><router-link :to="{ name: 'faq' }">FAQ</router-link></li>
   </ul> 
 </template> 
  

@@ -200,6 +200,8 @@ export const useCartStore = defineStore('cartStore',  {
 
                 await userStore.getUser()
 
+                console.log(userStore.isAuth)
+
                 await userStore.setBearer(userStore.isAuth)
 
                 if(this.coupon) data.coupon_id = this.coupon.id

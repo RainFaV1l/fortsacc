@@ -2,13 +2,15 @@
 import ButtonComponent from "@/components/UI/ButtonComponent.vue"; 
 import BenefitItem from "@/components/BenefitItem.vue"; 
 import {Swiper, SwiperSlide} from "swiper/vue"; 
-import SliderItem from "@/components/SliderItem.vue"; 
-import {reactive, ref} from "vue"; 
+import SliderItem from "@/components/SliderItem.vue";
+import {onMounted, reactive, ref} from "vue";
 import {EffectCoverflow, Navigation} from "swiper/modules"; 
 import BgImage from "@/assets/bg.webp"; 
 import Header from "@/components/header/Header.vue"; 
-import router from "@/router/index.js"; 
- 
+import router from "@/router/index.js";
+import {useTimer} from "@/mixins/timer.js";
+import Loading from "@/components/UI/Loading.vue";
+
 const url = ref(`background: url(${BgImage});`) 
  
 const benefitItems = reactive([ 
@@ -29,7 +31,33 @@ const swiperOptions = {
   perSlideRotate: 2, 
   rotate: false, 
   slideShadows: true, 
-}; 
+};
+
+// Получаем текущую дату и время
+const currentDate = new Date();
+
+// Устанавливаем время на начало текущего дня (00:00:00)
+const startOfDay = new Date(currentDate);
+
+// Количество миллисекунд на начало текущего дня
+startOfDay.setHours(0, 0, 0, 0);
+
+// Вычисляем разницу в миллисекундах между текущим временем и началом дня
+const millisecondsPassedToday = currentDate - startOfDay;
+
+// Количество миллисекунд за 1 день
+const millisecondsDay = 1000 * 60 * 60 * 24;
+
+// Получение количества оставшихся миллисекунд за данный день
+const {time, start} = useTimer(millisecondsDay - millisecondsPassedToday)
+
+onMounted(() => {
+
+  // Запуск таймера
+  start()
+
+})
+
 </script> 
  
 <template> 
@@ -78,13 +106,12 @@ const swiperOptions = {
               <SliderItem :item="item"/> 
             </swiper-slide> 
           </swiper> 
-          </div> 
-           
-          <div> 
-            <div class="flex flex-col items-center gap-[5px] py-[13px] px-[51px] border border-accent-green rounded-[10px]" style="background: linear-gradient(180deg, rgba(156.44, 255, 79, 0.20) 0%, rgba(156.44, 255, 79, 0) 100%)"> 
-              <h3 class="text-[28px] text-accent-green font-bold">11:30:28</h3> 
-              <p class="text-accent-light-blue text-sm">Ежедневная раздача</p> 
-            </div> 
+          </div>
+          <div>
+            <div class="flex flex-col items-center gap-[5px] py-[13px] px-[51px] border border-accent-green rounded-[10px] h-[100px]" style="background: linear-gradient(180deg, rgba(156.44, 255, 79, 0.20) 0%, rgba(156.44, 255, 79, 0) 100%)">
+              <h3 class="text-[28px] text-accent-green font-bold">{{`${time.hours.value}:${time.minutes.value}:${time.seconds.value}`}}</h3>
+              <p class="text-accent-light-blue text-sm">Ежедневная раздача</p>
+            </div>
           </div>
         </div> 
       </div> 

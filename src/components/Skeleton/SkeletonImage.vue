@@ -8,7 +8,7 @@
 </script>
 
 <template>
-  <div class="h-full w-full bg-white bg-opacity-50 rounded image" :class="{ 'h-[500px]' : index === 0, 'h-[200px]' : index !== 0}"></div>
+  <div class="h-full w-full bg-white bg-opacity-50 rounded image"></div>
 </template>
 
 <style scoped>

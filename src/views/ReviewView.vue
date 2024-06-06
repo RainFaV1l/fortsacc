@@ -13,7 +13,7 @@ const listEl = ref(null)
 const fetchingData = ref(true)
 
 onMounted(async () => {
-  if(reviewStore.currentPage === 1) {
+  if (reviewStore.currentPage === 1) {
     reviewStore.reviews = await reviewStore.fetchReviews()
   }
 })
@@ -22,7 +22,7 @@ useInfiniteScroll(listEl, async () => {
   fetchingData.value = false
   await reviewStore.getReviewsOnScroll()
   fetchingData.value = true
-}, { distance: 10 })
+}, {distance: 10})
 </script>
 
 <template>
@@ -38,8 +38,11 @@ useInfiniteScroll(listEl, async () => {
           <div class="flex flex-col gap-[30px]">
             <div class="min-h-[90vh]">
               <Transition>
-                <div class="grid grid-cols-4 gap-[30px] w-full">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[30px] w-full" v-if="reviewStore.reviews.length > 0">
                   <Review v-for="(item) in reviewStore.reviews" :key="item.id" :item="item"/>
+                </div>
+                <div class="text-center" v-else>
+                  Unfortunately, there are no reviews yet :(
                 </div>
               </Transition>
             </div>
